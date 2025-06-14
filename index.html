@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conecta Ya!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f4f4f4;
+    }
+
+    nav {
+      width: 200px;
+      background-color: #333;
+      height: 100vh;
+      position: fixed;
+      padding-top: 20px;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    .content {
+      margin-left: 200px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    header {
+      background-color: #1e90ff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    /* Carrusel */
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 30px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .carousel-slide {
+      display: flex;
+      width: 300%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      font-size: 18px;
+      border-radius: 50%;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: #1e90ff;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #1e90ff;
+    }
+
+    /* Sección empresas */
+    section {
+      margin-top: 40px;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .empresas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .empresa {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .empresa:hover {
+      transform: scale(1.02);
+    }
+
+    .empresa h3 {
+      margin-top: 0;
+      color: #1e90ff;
+    }
+
+    .empresa a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    .empresa a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #1e90ff;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú lateral -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="registro.html">Registro</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <!-- Contenido -->
+  <div class="content">
+    <header>
+      <h1>Conecta Ya!</h1>
+      <p>Impulsamos a seguir creciendo</p>
+    </header>
+
+    <!-- Carrusel -->
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carouselSlide">
+        <img src="img/empresa.jpg" height="710" width="350" alt="Imagen 1">
+        <img src="" alt="Imagen 2">
+        <img src=""  alt="Imagen 3">
+      </div>
+      <button class="prev" onclick="prevSlide()">❮</button>
+      <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+
+    <div class="dots">
+      <span class="dot" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+
+    <!-- Empresas registradas -->
+    <section>
+      <h2>Empresas Registradas en Conecta Ya!</h2>
+      <div class="empresas">
+        <div class="empresa">
+          <h3>EcoModa</h3>
+          <p>Ropa ecológica y sostenible hecha por emprendedores peruanos.</p>
+          <a href="#">Ver perfil</a>
+        </div>
+        <div class="empresa">
+          <h3>Delicias Anita</h3>
+          <p>Pastelería artesanal con reparto a domicilio en Lima.</p>
+          <a href="#">Ver perfil</a>
+        </div>
+        <div class="empresa">
+          <h3>TechFix</h3>
+          <p>Reparación de celulares y laptops para negocios emergentes.</p>
+          <a href="#">Ver perfil</a>
+        </div>
+        <div class="empresa">
+          <h3>Artesanías Luz</h3>
+          <p>Productos hechos a mano por mujeres emprendedoras del Cusco.</p>
+          <a href="#">Ver perfil</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Conecta Ya! Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <!-- Script carrusel -->
+  <script>
+    let currentSlide = 0;
+    const slideContainer = document.getElementById('carouselSlide');
+    const totalSlides = slideContainer.children.length;
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      currentSlide = index;
+      slideContainer.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    setInterval(nextSlide, 3000);
+    showSlide(0);
+  </script>
+
+</body>
+</html>
